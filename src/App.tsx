@@ -1,9 +1,11 @@
-import type { Component } from 'solid-js';
-import Upvote from './Upvote';
+import { For, type Component } from 'solid-js';
+import UpvoteList from './UpvoteList';
 
 const App: Component = () => {
   return (
-    <Upvote />
+    <For each={Array(3)}>{
+        () => <UpvoteList />
+    }</For>
   );
 };
 

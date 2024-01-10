@@ -8,13 +8,13 @@ const Upvote: Component = () => {
     const arrowColour = () => selected() ? '#253CF2' : '#343A40';
 
     const handleClick = () => {
-        setSelected(s => !s);
+        setSelected(!selected());
     }
 
     return (
-        <button onClick={handleClick} class={styles.upvotebutton} >
+        <div onClick={handleClick} class={styles.upvotebutton} >
             <UpvoteSvg backgroundColour={backgroundColour()} arrowColour={arrowColour()} /> 
-        </button>
+        </div>
     );
 }; 
 
