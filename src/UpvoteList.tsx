@@ -4,9 +4,14 @@ import styles from './UpvoteList.module.css';
 
 const UpvoteList: Component = () => {
     const [upvoteCount, setUpvoteCount] = createSignal(0);
+    const [selected, setSelected] = createSignal(false);
 
-    const handleClick = () => {
+    const handleAddClick = () => {
         setUpvoteCount(upvoteCount() + 1);
+    }
+
+    const handleUpvoteClick = (selected: boolean) => {
+        setSelected(selected);
     }
 
     const AddButton = () => (
@@ -19,17 +24,20 @@ const UpvoteList: Component = () => {
 
     return (
         <div class={styles.upvotelist}>
-            <div class={styles.addbutton} onclick={handleClick}>
+            <div class={styles.addbutton} onClick={handleAddClick}>
                 <AddButton />
             </div>
             <div class={styles.wireframe}>
                 <For each={Array(upvoteCount())} >
                     {() => {
-                        console.log("create");
-                        return <Upvote />;
+                        return <Upvote selected={selected()} onClick={handleUpvoteClick} />;
                     }}
                 </For>
             </div>
+            {/* These temporary upvote buttons works and change as expected */}
+            <Upvote selected={true} />
+            <Upvote onClick={() => console.log("Second button click")}/>
+            <Upvote />
         </div>
     )
 }; 
