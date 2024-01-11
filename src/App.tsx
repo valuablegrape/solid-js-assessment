@@ -14,12 +14,10 @@ const App: Component = () => {
             } catch (err) {}
         }
 
-        const createUpvoteListState = () => ({
+        return Array(numberOfUpvoteLists).fill(0).map((_) => ({
             upvoteCount: 0,
             selected: false,
-        });
-
-        return Array(numberOfUpvoteLists).fill(createUpvoteListState());
+        }));
     }
 
     const [upvoteListState, setUpvoteListState] = createStore<UpvoteListProps[]>(initialUpvoteListState());
