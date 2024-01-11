@@ -1,0 +1,29 @@
+.upvotelist {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0px 4px 0px;
+}
+
+.wireframe {
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    border: 2px solid #AAA;
+    background: #FFF;
+    padding: 6px;
+    gap: 6px;
+    height: 72px;
+    min-width: 72px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.addbutton {
+    border-radius: 15px;
+    background: #DDD;
+    cursor: pointer;
+    border: none;
+    width: 72px;
+    height: 72px;
+}
