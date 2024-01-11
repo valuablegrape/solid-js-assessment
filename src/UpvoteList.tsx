@@ -1,10 +1,24 @@
-import { For, type Component, createSignal } from 'solid-js';
+import { For, type Component, createSignal, mergeProps, createEffect } from 'solid-js';
 import Upvote from './Upvote';
 import styles from './UpvoteList.module.css';
 
-const UpvoteList: Component = () => {
-    const [upvoteCount, setUpvoteCount] = createSignal(0);
-    const [selected, setSelected] = createSignal(false);
+export interface UpvoteListProps {
+    upvoteCount?: number;
+    selected?: boolean;
+    onChange?: (upvoteCount: number, selected: boolean) => void;
+};
+
+const defaultProps = {
+    upvoteCount: 0,
+    selected: false,
+    onChange: () => {}
+};
+
+const UpvoteList: Component<UpvoteListProps> = (props) => {
+    const mergedProps = mergeProps(defaultProps, props);
+
+    const [upvoteCount, setUpvoteCount] = createSignal(mergedProps.upvoteCount);
+    const [selected, setSelected] = createSignal(mergedProps.selected);
 
     const handleAddClick = () => {
         setUpvoteCount(upvoteCount() + 1);
@@ -13,6 +27,16 @@ const UpvoteList: Component = () => {
     const handleUpvoteClick = (selected: boolean) => {
         setSelected(selected);
     }
+
+    // If the props change at any moment, we set that value in too
+    createEffect(() => {
+        setUpvoteCount(mergedProps.upvoteCount);
+        setSelected(mergedProps.selected);
+    });
+
+    createEffect(() => {
+        mergedProps.onChange(upvoteCount(), selected());
+    });
 
     const AddButton = () => (
         <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
@@ -34,10 +58,6 @@ const UpvoteList: Component = () => {
                     }}
                 </For>
             </div>
-            {/* These temporary upvote buttons works and change as expected */}
-            <Upvote selected={true} />
-            <Upvote onClick={() => console.log("Second button click")}/>
-            <Upvote />
         </div>
     )
 }; 
