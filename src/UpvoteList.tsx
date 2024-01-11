@@ -48,7 +48,7 @@ const UpvoteList: Component<UpvoteListProps> = (props) => {
 
     return (
         <div class={styles.upvotelist}>
-            <div class={styles.addbutton} onClick={handleAddClick}>
+            <div class={styles.addbutton} onClick={handleAddClick} data-testid="add-button">
                 <AddButton />
             </div>
             <div class={styles.wireframe}>

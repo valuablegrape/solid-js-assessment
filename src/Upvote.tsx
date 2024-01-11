@@ -18,6 +18,7 @@ const Upvote: Component<UpvoteProps> = (props) => {
     const [selected, setSelected] = createSignal(mergedProps.selected);
     const backgroundColour = () => selected() ? '#E5E8FD' : '#F4F6F8';
     const arrowColour = () => selected() ? '#253CF2' : '#343A40';
+    const dataTestId = () => selected() ? "upvote-button-selected" : "upvote-button";
 
     const handleClick = () => {
         setSelected(!selected());
@@ -30,7 +31,7 @@ const Upvote: Component<UpvoteProps> = (props) => {
     });
 
     return (
-        <div onClick={handleClick} class={styles.upvotebutton} >
+        <div onClick={handleClick} class={styles.upvotebutton} data-testid={dataTestId()}>
             <UpvoteSvg backgroundColour={backgroundColour()} arrowColour={arrowColour()} /> 
         </div>
     );
