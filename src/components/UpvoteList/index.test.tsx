@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@solidjs/testing-library';
 import { describe, it, expect, vi } from 'vitest';
-import UpvoteList from './UpvoteList';
+import UpvoteList from '.';
 
 describe('UpvoteList tests', () => {
     it('Test the buttons', () => {

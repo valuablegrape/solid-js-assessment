@@ -1,6 +1,6 @@
 import { For, type Component, createSignal, mergeProps, createEffect } from 'solid-js';
-import Upvote from './Upvote';
-import styles from './UpvoteList.module.css';
+import Upvote from '../Upvote';
+import styles from './index.module.css';
 
 export interface UpvoteListProps {
     upvoteCount?: number;

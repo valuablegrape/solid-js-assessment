@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@solidjs/testing-library';
 import { describe, it, expect, vi } from 'vitest';
-import Upvote from './Upvote';
+import Upvote from '.';
 
 describe('Upload button tests', () => {
     it('Test the button independently', () => {

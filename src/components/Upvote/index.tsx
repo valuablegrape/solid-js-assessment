@@ -1,6 +1,6 @@
 import { type Component, mergeProps, createSignal, createEffect } from 'solid-js';
-import UpvoteSvg from './UpvoteSvg';
-import styles from './Upvote.module.css';
+import UpvoteSvg from '../UpvoteSvg';
+import styles from './index.module.css';
 
 export interface UpvoteProps {
     selected?: boolean;

@@ -1,6 +1,6 @@
 import { Index, type Component, createEffect } from 'solid-js';
 import { createStore, produce } from 'solid-js/store';
-import UpvoteList, { type UpvoteListProps } from './UpvoteList';
+import UpvoteList, { type UpvoteListProps } from './components/UpvoteList';
 
 const numberOfUpvoteLists = 3;
 
